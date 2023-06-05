@@ -45,6 +45,7 @@ body.wrong{
     margin: 20px 0;
 }
 
+
 .btn{
     --hue: var(--hue-neutral);
     border: 1px solid hsl(var(--hue), 100%, 30%);

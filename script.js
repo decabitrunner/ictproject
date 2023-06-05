@@ -40,7 +40,6 @@ function start() {
 }
 
 
-
 function setNext(){
     displayQuestion(shuffledQuestions[currentQuestion])
 
