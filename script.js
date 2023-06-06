@@ -13,21 +13,22 @@ const questions = []
 let shuffledQuestions, currentQuestion
 
 
-
-for (let i = 0; i<=10; i++){
-    let a = Math.floor((Math.random()*12)+1)
-    let b = Math.floor((Math.random()*12)+1)
-    let ans = a*b
-    questions.push({
-        question: String(a + ' x ' + b),
-        answers: [
-            {text: String(ans), correct: true},
-            {text: String(Math.floor((Math.random()*144)+1)), correct: false},
-            {text: String(Math.floor((Math.random()*144)+1)), correct: false},
-            {text: String(Math.floor((Math.random()*144)+1)), correct: false}
-                ]
-    }) 
-    
+function makeQuestions(){
+    for (let i = 0; i<=10; i++){
+        let a = Math.floor((Math.random()*12)+1)
+        let b = Math.floor((Math.random()*12)+1)
+        let ans = a*b
+        questions.push({
+            question: String(a + ' x ' + b),
+            answers: [
+                {text: String(ans), correct: true},
+                {text: String(Math.floor((Math.random()*144)+1)), correct: false},
+                {text: String(Math.floor((Math.random()*144)+1)), correct: false},
+                {text: String(Math.floor((Math.random()*144)+1)), correct: false}
+                    ]
+        }) 
+        
+    }
 }
 
 console.log(questions)
@@ -35,6 +36,7 @@ console.log(questions)
 
 
 function start() {
+    makeQuestions()
     resetstate()
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(()=>Math.random()-0.5)
@@ -80,7 +82,8 @@ function selectAns(e){
     }else{
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
-        console.log('wtf why here')
+        makeQuestions()
+        
     }
 
     
@@ -102,6 +105,7 @@ function clearStatusClass(element){
 
 
 function resetstate(){
+    
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtons.firstElementChild){
