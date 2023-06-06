@@ -50,6 +50,7 @@ function setNext(){
 
 }
 
+
 function displayQuestion(question){
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
