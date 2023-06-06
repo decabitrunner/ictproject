@@ -78,7 +78,7 @@ function selectAns(e){
     })
     if (shuffledQuestions.length>currentQuestion+1){
         nextButton.classList.remove('hide')
-        console.log('been here')
+        
     }else{
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
